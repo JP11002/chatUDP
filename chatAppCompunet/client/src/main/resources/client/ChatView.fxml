@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="client.ChatController">
+
+    <top>
+        <HBox spacing="8" style="-fx-padding: 8;">
+            <Label text="Nombre:"/>
+            <TextField fx:id="nameField" prefWidth="140"/>
+            <Button fx:id="connectBtn" text="Conectar" onAction="#connect"/>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TextArea fx:id="chatArea" editable="false" wrapText="true"/>
+    </center>
+
+    <right>
+        <VBox spacing="8" style="-fx-padding: 8;">
+            <Label text="Destino (target)"/>
+            <TextField fx:id="targetField" promptText="user or group name"/>
+            <ChoiceBox fx:id="targetType"/>
+            <HBox spacing="6">
+                <Button fx:id="createGroupBtn" text="Crear" onAction="#createGroup"/>
+                <Button fx:id="joinGroupBtn" text="Join" onAction="#joinGroup"/>
+            </HBox>
+            <Separator/>
+            <Label text="Mensaje"/>
+            <TextField fx:id="messageField"/>
+            <Button fx:id="sendBtn" text="Enviar" onAction="#sendMessage"/>
+            <Separator/>
+            <Button fx:id="recordVoiceBtn" text="Grabar nota (5s)" onAction="#recordVoice"/>
+            <Button fx:id="sendVoiceBtn" text="Enviar nota" onAction="#sendVoiceNote"/>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox spacing="8" style="-fx-padding: 8;">
+            <Label text="Ayuda: /create, /join, enviar mensajes con target y type"/>
+        </HBox>
+    </bottom>
+</BorderPane>
